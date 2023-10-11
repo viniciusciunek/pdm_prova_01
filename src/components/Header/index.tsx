@@ -2,9 +2,14 @@ import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 import { useActionSheet } from "@expo/react-native-action-sheet";
 import { Stack, useRouter } from "expo-router";
 import { Dimensions } from "react-native";
+import { AntDesign, Entypo } from "@expo/vector-icons";
+
 import React from "react";
+import useUser from "../../states/useUser";
 
 export default function Header() {
+  const { setUser } = useUser();
+
   const router = useRouter();
   const { showActionSheetWithOptions } = useActionSheet();
 
@@ -19,7 +24,8 @@ export default function Header() {
         if (botaoClicado === 0) {
           router.push("/sobre");
         } else if (botaoClicado === 1) {
-          router.push("/");
+          router.replace("/");
+          setUser(null);
         }
       }
     );
@@ -29,7 +35,11 @@ export default function Header() {
     <>
       <Stack.Screen
         options={{
-          headerRight: () => <Button title="botao" onPress={handleClick} />,
+          headerRight: () => (
+            <TouchableOpacity onPress={handleClick}>
+              <Entypo name="menu" size={32} color="black" />
+            </TouchableOpacity>
+          ),
         }}
       />
       <View style={styles.container}>
@@ -42,7 +52,6 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     height: 86,
     width: Dimensions.get("window").width,
     justifyContent: "center",
