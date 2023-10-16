@@ -35,16 +35,24 @@ export default function Header() {
     <>
       <Stack.Screen
         options={{
+          // title: "Página Inicial",
+          // headerStyle: {
+          //   backgroundColor: "#001d3d",
+          // },
+          // headerTitleStyle: {
+          //   fontFamily: "BebasNeue",
+          //   color: "ghostwhite",
+          // },
           headerRight: () => (
             <TouchableOpacity onPress={handleClick}>
-              <Entypo name="menu" size={32} color="black" />
+              <Entypo name="menu" size={32} color="ghostwhite" />
             </TouchableOpacity>
           ),
         }}
       />
       <View style={styles.container}>
-        <Text style={styles.title}>Toyoto Cars</Text>
-        <Text style={styles.subtitle}>sua melhor concessionária!</Text>
+        <Text style={styles.title}>Ciunek Cars</Text>
+        <Text style={styles.subtitle}>ADQUIRA SEU SONHO DE QUATRO RODAS!</Text>
       </View>
     </>
   );
@@ -56,14 +64,15 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#001d3d",
   },
   title: {
-    fontSize: 32,
+    color: "ghostwhite",
+    fontSize: 24,
     fontWeight: "bold",
-    color: "white",
+    fontFamily: "HighSpeed",
   },
   subtitle: {
+    fontFamily: "BebasNeue",
     color: "white",
   },
 });

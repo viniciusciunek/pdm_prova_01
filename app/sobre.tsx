@@ -1,26 +1,43 @@
 import { View, Text, StyleSheet, Linking } from "react-native";
 import React from "react";
-import { Link, Stack } from "expo-router";
+import { AntDesign, Entypo } from "@expo/vector-icons";
+import { Stack } from "expo-router";
 
 export default function _Screen() {
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{}} />
+      <Stack.Screen
+        options={{
+          title: "Sobre",
+          headerStyle: {
+            backgroundColor: "#001d3d",
+          },
+          headerTitleStyle: {
+            fontFamily: "BebasNeue",
+            color: "ghostwhite",
+          },
+        }}
+      />
       <View style={styles.box}>
-        <View style={styles.first}>
-          <Text style={styles.title}>Calabreso Cars</Text>
-          <Text style={styles.subtitle}>versão 1.0 alpha</Text>
+        <View>
+          <Text style={styles.title}>CIUNEK CARS</Text>
+          <Text style={styles.subtitle}>VERSÃO 1.0</Text>
         </View>
-        <View style={styles.second}>
-          <Text style={styles.subtitle}>desenvolvido por:</Text>
+        <View>
+          <Text style={styles.subtitle}>DESENVOLVIDO POR:</Text>
           <Text style={styles.title}>Vinicius G. Ciunek</Text>
           <Text
-            style={styles.title}
+            style={styles.subtitle}
             onPress={() => {
               Linking.openURL("https://github.com/viniciusciunek");
             }}
-          >GITHUB
+          >
+            <AntDesign name="github" size={32} color="black" />
           </Text>
+        </View>
+        <View>
+          <Text style={styles.title}>PROF. ANDRES</Text>
+          <Text style={styles.subtitle}>PROG. MOBILE 2023.2</Text>
         </View>
       </View>
     </View>
@@ -35,30 +52,40 @@ const styles = StyleSheet.create({
     backgroundColor: "#001d3d",
   },
   box: {
-    backgroundColor: "lightblue",
-    padding: 48,
+    backgroundColor: "#64daf7",
+    padding: 32,
     minHeight: 640,
     minWidth: 380,
+    margin: 120,
+    borderColor: "ghostwhite",
+    borderLeftWidth: 8,
+    borderBottomWidth: 8,
     borderRadius: 24,
-  },
-  first: {
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.6,
+    shadowRadius: 3,
+    flexDirection: "column",
     alignItems: "center",
-    marginBottom: 124,
+    justifyContent: "space-evenly",
   },
   title: {
-    fontSize: 32,
-    fontWeight: "bold",
     color: "ghostwhite",
-    textShadowColor: "black",
-    textShadowOffset: { width: 4, height: 1 },
-    textShadowRadius: 10,
+    fontSize: 24,
+    fontWeight: "bold",
+    fontFamily: "HighSpeed",
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.6,
+    shadowRadius: 3,
   },
   subtitle: {
     fontSize: 16,
-    fontWeight: "100",
     color: "#001d3d",
-  },
-  second: {
-    alignItems: "center",
+    fontWeight: "100",
+    letterSpacing: 0.8,
+    textAlign: "center",
+    fontFamily: "BebasNeue",
+    margin: 1,
   },
 });

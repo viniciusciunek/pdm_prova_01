@@ -24,8 +24,6 @@ export function organizeDataByBrand(data: DataType) {
     organizados[marca].push(item);
   });
 
-  console.log(JSON.stringify(organizados, null, 2));
-  // return organizados;
   return Object.keys(organizados).map((marca) => ({
     title: marca,
     data: organizados[marca],
