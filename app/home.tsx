@@ -1,5 +1,5 @@
 // natives
-import { SectionList, Text, StyleSheet, View } from "react-native";
+import { SectionList, Text, StyleSheet, View, Dimensions } from "react-native";
 import { Link, Stack, useRouter } from "expo-router";
 import React from "react";
 
@@ -44,21 +44,18 @@ export default function _Screen() {
                 id: item.id,
               },
             }}
-            style={styles.link}
           >
-            <View>
-              <View>
-                <View style={styles.sectionContentTitle}>
-                  <Text style={styles.title}>ID</Text>
-                  <Text style={styles.title}>Model</Text>
-                  <Text style={styles.title}>Year</Text>
-                </View>
+            <View style={styles.fullContainer}>
+              <View style={styles.sectionContentTitle}>
+                <Text style={styles.title}>ID</Text>
+                <Text style={styles.title}>Model</Text>
+                <Text style={styles.title}>Year</Text>
+              </View>
 
-                <View style={styles.sectionContent}>
-                  <Text style={styles.title}>{item.id}</Text>
-                  <Text style={styles.title}>{item.model}</Text>
-                  <Text style={styles.title}>{item.year}</Text>
-                </View>
+              <View style={styles.sectionContent}>
+                <Text style={styles.title}>{item.id}</Text>
+                <Text style={styles.title}>{item.model}</Text>
+                <Text style={styles.title}>{item.year}</Text>
               </View>
             </View>
           </Link>
@@ -74,11 +71,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#001d3d",
   },
-  link: {
-    flex: 1,
-    flexGrow: 1,
-    width: 200,
-  },
   sectionHeader: {
     fontSize: 16,
     fontWeight: "bold",
@@ -91,37 +83,41 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
     borderRadius: 12,
   },
-  sectionContent: {
+  fullContainer: {
     alignItems: "center",
-    height: 64,
-    flexDirection: "row",
-    backgroundColor: "ghostwhite",
-    padding: 12,
-    marginTop: 0,
-    margin: 12,
-    borderEndStartRadius: 12,
-    borderEndEndRadius: 12,
-    borderColor: "#64daf7",
-    borderLeftWidth: 2,
-    borderBottomWidth: 2,
-    borderBottomLeftRadius: 6,
-    borderBottomRightRadius: 6,
   },
   sectionContentTitle: {
-    flex: 1,
-    flexGrow: 1,
     justifyContent: "space-around",
     alignItems: "center",
     flexDirection: "row",
     backgroundColor: "#64daf7",
     color: "ghostwhite",
     padding: 4,
-    marginHorizontal: 12,
     borderTopStartRadius: 12,
     borderTopEndRadius: 12,
     borderColor: "#64daf7",
     borderLeftWidth: 2,
+    marginHorizontal: 4,
+    width: "95%",
     borderTopLeftRadius: 6,
+  },
+  sectionContent: {
+    alignItems: "center",
+    height: 64,
+    flexDirection: "row",
+    backgroundColor: "ghostwhite",
+    padding: 12,
+    marginBottom: 12,
+    marginHorizontal: 4,
+    borderEndStartRadius: 12,
+    width: "95%",
+    borderEndEndRadius: 12,
+    borderColor: "#64daf7",
+    borderLeftWidth: 2,
+    borderBottomWidth: 2,
+    borderBottomLeftRadius: 6,
+    borderBottomRightRadius: 6,
+    justifyContent: "space-around",
   },
   title: {
     fontSize: 16,

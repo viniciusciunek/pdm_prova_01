@@ -26,7 +26,7 @@ export default function Login() {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ headerShown: false }} />
-      {/* <ImageBackground source={require("../assets/images/car.png")} style={styles.image}> */}
+      <ImageBackground source={require("../assets/images/car.png")} style={styles.image}>
         <View style={styles.boxTitle}>
           <Text style={styles.title}>Ciunek Cars</Text>
         </View>
@@ -54,7 +54,7 @@ export default function Login() {
             <Text>FAZER LOGIN</Text>
           </TouchableOpacity>
         </View>
-      {/* </ImageBackground> */}
+      </ImageBackground>
     </View>
   );
 }
